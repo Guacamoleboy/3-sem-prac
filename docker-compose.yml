@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: 3sem_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpass
+      POSTGRES_DB: 3semprac
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: 3sem_pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: cph-jl325@stud.ek.dk 
+      PGADMIN_DEFAULT_PASSWORD: Jegfuckinghadernyepasswords123!
+    ports:
+      - "8080:80"
+
+volumes:
+  pgdata:

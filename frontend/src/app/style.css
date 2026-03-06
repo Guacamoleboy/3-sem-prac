@@ -1,0 +1,928 @@
+/* ################################################################# */
+/*                                                                   */
+/* INDEX                                                             */
+/*                                                                   */
+/*                                                                   */
+/* 1.0 - Navbar Root                                                 */
+/* 1.1 ----- Announcement                                            */
+/* 1.2 ----- Navbar                                                  */
+/* 1.3 ----- Dropdown                                                */
+/* 1.4 ----- Buttons                                                 */
+/*                                                                   */
+/* 2.0 - Preloader                                                   */
+/* 2.1 ----- Preloader Info                                          */
+/*                                                                   */
+/* 3.0 - Hero Setup                                                  */
+/* 3.1 ----- Hero Content                                            */
+/* 3.2 ----- Hero Buttons                                            */
+/* 3.3 ----- Hero Input                                              */
+/* 3.4 ----- Hero Logo                                               */
+/* 3.5 ----- Hero Search Dropdown                                    */
+/* 3.6 ----- Hero Dynamic Word                                       */
+/* 3.7 ----- Hero Media Query                                        */
+/* 3.8 ----- Hero Circles / Background Animation                     */
+/*                                                                   */
+/* 4.0 - Scanner                                                     */
+/*                                                                   */
+/* 5.0 - Footer                                                      */
+/*                                                                   */
+/* 6.0 - Law                                                         */
+/*                                                                   */
+/* ################################################################# */
+
+:root {
+
+    /* Theme Specific */
+    --consumr-background: #4d7b64;
+    --consumr-text: #1a1a1a;
+    --consumr-button-grad-one: #00918e;                                             
+    --consumr-button-grad-two: #158380;
+
+    /* Colors */
+    --consumr-theme: #4d7b64;
+    --consumr-orange: orange;
+    --consumr-red: red;
+    --consumr-blue: blue;
+    --consumr-green: rgb(0, 160, 0);
+    --consumr-black: black;
+    --consumr-less-black: rgb(61, 61, 61);
+    --consumr-white: white;
+    --consumr-less-white: rgb(182, 182, 182);
+    --consumr-grey: rgb(95, 95, 95);
+    --consumr-light-grey: rgb(188, 188, 188);
+    --consumr-accent-purple: #b085f5;
+    --consumr-accent-blue: #6b8cff;
+    --consumr-gray-dark: #1a1a24;
+
+    /* Navbar Specific */
+    --consumr-nav-background: #446b57;
+    --consumr-nav-text: #e8e8e8;
+    --consumr-nav-dropdown-background: #3f3f3f;
+    --consumr-nav-dropdown-li: #FFF;
+    --consumr-nav-dropdown-ul: #FFF;
+    --consumr-nav-dropdown-focused: #FFF;
+    --consumr-nav-dropdown-active: #FFF;
+
+    /* Announcement Bar */
+    --consumr-announcement-background: #3d6550;
+    --consumr-announcement-text: #e8e8e8;
+
+    /* Layout */
+    --consumr-header-height: 6rem;
+
+    /* Rating Fill */
+    --consumr-rating-one: #ff0000;
+    --consumr-rating-two: #ff6a00;
+    --consumr-rating-three: #ffa600;
+    --consumr-rating-four: #fff700;
+    --consumr-rating-five: #00e509;
+
+    /* Preloader */
+    --preloader-bg: #365645;
+
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* Old Browsers. Just for safety. */
+    background-color: var(--consumr-background);
+    background: var(--consumr-background);
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { /* All other browsers */
+    display: none;
+}
+
+/* ################################################################# */
+/*                       1.0 NAVBAR - ROOT                           */
+/* ################################################################# */
+
+.header-stack {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+/* ################################################################# */
+/*                   1.1 NAVBAR - ANNOUNCEMENT                       */
+/* ################################################################# */
+
+.announcement-bar {
+    display: flex;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--consumr-announcement-background) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    z-index: 1;
+    align-items: center;
+}
+
+.announcement-track {
+    display: flex;
+    align-items: center;
+    padding-left: 100%;
+    animation: guacMarquee 18s linear infinite;
+}
+
+.announcement-track span {
+    color: var(--consumr-announcement-text);
+    font-weight: 500;
+}
+
+.announcement-bar-flag:first-child,
+.announcement-bar-flag {
+    margin-right: 0.5rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+}
+
+.announcement-bar-flag:last-child {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+}
+
+/* ################################################################# */
+/*                          1.2 NAVBAR                               */
+/* ################################################################# */
+
+.navbar-consumr {
+    height: 4rem;
+    background-color: var(--consumr-nav-background);
+    color: var(--consumr-nav-text) !important;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding: 0 1rem;
+}
+
+.navbar-consumr a {
+    text-decoration: none !important;
+}
+
+.navbar-consumr .guac-container {
+    height: 100%;
+}
+
+.navbar-brand-consumr span {
+    height: 100%;
+    font-weight: 600;
+    color: var(--consumr-nav-text) !important;
+    text-decoration: none;
+    font-size: 1.25rem !important;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links > li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a,
+.nav-links button {
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    padding: 0 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--consumr-nav-text) !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links button:hover {
+    color: var(--consumr-theme);
+}
+
+.navbar-consumr li {
+    margin-bottom: 0 !important;
+}
+
+.navbar-logo-sizing {
+    margin-right: 0.25rem !important;
+    width: 12.5%;
+    height: auto;
+}
+
+.navbar-toggle,
+.navbar-close {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .navbar-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--consumr-nav-text);
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        inset: 0;
+        background-color: var(--consumr-theme);
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 9999;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        list-style: none;
+        text-align: center;
+    }
+
+    .nav-links a, .nav-links button {
+        font-size: 1.25rem;
+        color: var(--consumr-white) !important;
+        padding: 0.75rem 1rem;
+        display: block;
+        width: 100%;
+    }
+
+    .nav-links .dropdown-menu {
+        display: none !important;
+    }
+
+    .guac-d-flex.guac-gap-2 {
+        display: none;
+    }
+
+    .navbar-close {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--consumr-white);
+        cursor: pointer;
+        display: none;
+        z-index: 10000;
+    }
+
+    .nav-links.open + .navbar-close {
+        display: block;
+    }
+
+    .navbar-close.open {
+        display: block;
+    }
+
+}
+
+/* ################################################################# */
+/*                       1.3 NAVBAR - DROPDOWN                       */
+/* ################################################################# */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 99999;
+    display: none;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -50%;
+    display: none;
+    flex-direction: column;
+    min-width: 14rem;
+    background-color: rgba(77, 123, 100, 1);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.25);
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 0;
+}
+
+.dropdown i {
+    margin-left: 0.25rem !important;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    color: var(--consumr-nav-dropdown-li);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dropdown-menu a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleX(0);
+    width: 4px;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu a:hover::before {
+    transform: translateY(-50%) scaleX(1);
+}
+
+.dropdown-menu a:hover {
+    font-size: 0.9rem;
+    background-color: rgba(74, 143, 106, 0.8);
+    padding-left: 1rem;
+    color: #fff;
+}
+
+/* ################################################################# */
+/*                       1.4 NAVBAR - BUTTONS                        */
+/* ################################################################# */
+
+.consumr-logind-btn,
+.consumr-opret-btn {
+    border-radius: 0.75rem;
+    border: none;
+    line-height: 1;
+    font-weight: 500;
+    font-size: clamp(0.75rem, 2.4vw, 0.9rem);
+    padding: clamp(0.4rem, 1.6vw, 0.5rem)
+    clamp(0.6rem, 2.4vw, 0.8rem);
+    min-height: 44px;
+    transition:
+            background 0.25s ease,
+            box-shadow 0.25s ease,
+            transform 0.2s ease;
+    box-shadow: 0 4px 2px rgba(0,0,0,0.25);
+}
+
+.consumr-logind-btn {
+    background: rgba(255,255,255,0.08);
+    color: var(--consumr-white);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.consumr-logind-btn:hover {
+    background: rgba(255,255,255,0.14);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+    transform: translateY(2px);
+}
+
+.consumr-opret-btn {
+    background: #579575;
+    color: var(--consumr-white);
+}
+
+.consumr-opret-btn:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+}
+
+/* ################################################################# */
+/*                          2.0 PRELOADER                            */
+/* ################################################################# */
+
+.preloader {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--preloader-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: guacFadeOut 1s ease-in-out forwards;
+    flex-direction: column;
+}
+
+/* ################################################################# */
+/*                       2.1 PRELOADER - INFO                        */
+/* ################################################################# */
+
+.consumr-logo-preloader {
+    width: clamp(200px, 20vw, 20%);
+    height: auto;
+}
+
+/* ################################################################# */
+/*                          3.0 HERO SETUP                           */
+/* ################################################################# */
+
+.section-hero {
+    isolation: isolate;
+    height: 100vh; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;         
+    justify-content: flex-start;  
+    padding-top: 9rem !important;
+    background: var(--consumr-background);
+}
+
+.section-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+            radial-gradient(circle at var(--circle1-pos, 30% 70%), #b68b10 0%, transparent 20%),
+            radial-gradient(circle at var(--circle2-pos, 70% 30%), var(--consumr-theme) 0%, transparent 20%);
+    opacity: 0.15;
+}
+
+/* ################################################################# */
+/*                          3.1 HERO CONTENT                         */
+/* ################################################################# */
+
+.section-hero .container {
+    text-align: center;
+    z-index: 2;
+}
+
+.section-hero h1 {
+    color: var(--consumr-white);
+    font-size: clamp(1.5rem, 2.6vw, 2.5rem) !important;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.section-hero h1 span {
+    color: #6ab990 !important;
+}
+
+.section-hero p {
+    color: var(--consumr-white);
+    font-size: clamp(0.9rem, 3.8vw, 1.15rem) !important;
+    opacity: 1;
+    max-width: 600px;
+    margin: 1rem auto 1rem;
+}
+
+/* ################################################################# */
+/*                         3.2 HERO BUTTONS                          */
+/* ################################################################# */
+
+.integration-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 764px) {
+    .integration-buttons {
+        display: none;
+    }
+}
+
+.integration-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--consumr-white);
+    padding: 0.9rem 1.4rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.integration-btn:hover {
+    background: #509b74;
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px #509b74, 0 0 4px #509b74;
+    color: var(--consumr-white);
+}
+
+.integration-btn i {
+    font-size: 1rem;
+}
+
+.btn-send, .btn-scan {
+    background: #509b74;
+    border: none;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 2px rgba(0,0,0,0.3);
+}
+
+.btn-send:hover, .btn-scan:hover {
+    background: #478a67;
+    transform: translateY(2px);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+}
+
+.btn-send i, .btn-scan i {
+    margin-left: 1rem !important;
+}
+
+/* ################################################################# */
+/*                          3.3 HERO INPUT                           */
+/* ################################################################# */
+
+.input-group {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    background: rgba(28,28,28,0.16);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.30);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: text;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,1) !important;
+    font-size: 0.9rem;
+    flex: 1;
+    outline: none;
+    font-weight: 600 !important;
+}
+
+.input-group input::placeholder {
+    font-weight: 500 !important;
+    color: rgba(255,255,255,1) !important;
+    font-size: 0.9rem;
+}
+
+/* ################################################################# */
+/*                          3.4 HERO LOGO                            */
+/* ################################################################# */
+
+.logo-small {
+    width: clamp(100px, 20vw, 10%) !important;
+    height: auto;
+}
+
+/* ################################################################# */
+/*                    3.5 HERO SEARCH DROPDOWN                       */
+/* ################################################################# */
+
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 50%;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /*display: none;*/
+}
+
+.search-dropdown .search-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+    .search-dropdown {
+        width: 100%;
+    }
+}
+
+.search-dropdown .search-item:last-child {
+    border-bottom: none;
+}
+
+.search-dropdown .search-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.search-dropdown .search-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* ################################################################# */
+/*                      3.6 HERO DYNAMIC WORD                        */
+/* ################################################################# */
+
+.dynamic-word-visuals span:first-child {
+    color: var(--consumr-white) !important;
+}
+
+/* ################################################################# */
+/*                      3.7 HERO MEDIA QUERY                         */
+/* ################################################################# */
+
+@media (max-width: 480px) {
+
+    .input-group .btn-scan {
+        display: none;
+    }
+
+    .input-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .input-group input {
+        flex: 1;
+        font-size: 16px;
+        line-height: 1.2;
+        background: transparent;
+        border: none;
+        color: rgba(255,255,255,1) !important;
+        font-weight: 600 !important;
+        outline: none;
+    }
+
+    .input-group input::placeholder {
+        font-weight: 500 !important;
+        color: rgba(255,255,255,1) !important;
+        font-size: 16px;
+    }
+
+    .input-group .btn-send {
+        flex-shrink: 0;
+        padding: 0.4rem 0.6rem;
+        font-size: 16px;
+    }
+
+    .integration-buttons {
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .integration-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        gap: 0.3rem;
+        border-radius: 16px;
+    }
+
+    .integration-btn i {
+        font-size: 0.85rem;
+    }
+
+}
+
+/* ################################################################# */
+/*                           4.0 SCANNER                             */
+/* ################################################################# */
+
+#scanner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 99999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#scanner-overlay.visible {
+    display: flex;
+}
+
+#scan-box, #close-scan-btn {
+    pointer-events: all;
+}
+
+#overlay-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(54, 86, 69, 1);
+    pointer-events: none;
+    z-index: 99999;
+}
+
+#scan-box {
+    position: relative;
+    width: 80vw;
+    max-width: 300px;
+    aspect-ratio: 2.5 / 1;
+    border: 2px solid red;
+    box-sizing: border-box;
+    z-index: 100000;
+    pointer-events: all;
+    margin-bottom: 20px;
+}
+
+#close-scan-btn {
+    z-index: 100001;
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#reader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99998;
+    pointer-events: none;
+}
+
+/* ################################################################# */
+/*                            5.0 FOOTER                             */
+/* ################################################################# */
+
+.site-footer {
+    position: absolute;
+    bottom: 0; width: 100%;
+    z-index: 10;
+    background-color: rgba(255,255,255,0.05);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 1.1rem 0;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.7);
+}
+
+.footer-brand {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.95);
+}
+
+.footer-divider {
+    opacity: 0.45;
+}
+
+.footer-link {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+}
+.footer-link:hover {
+    opacity: 1 !important;
+    color: var(--consumr-white);
+}
+
+.footer-right .dropdown button {
+    font-size: 0.65rem;
+    min-width: 2rem;
+    height: 1.5rem;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+.footer-fix .site-footer {
+    position: static !important;
+}
+
+@media (max-width: 768px) {
+    .site-footer span:nth-of-type(2),
+    .site-footer span:nth-of-type(3),
+    .site-footer span:nth-of-type(4),
+    .site-footer span:nth-of-type(5) {
+        display: none;
+    }
+
+}
+
+/* ################################################################# */
+/*                             6.0 LAW                               */
+/* ################################################################# */
+
+.section-consumr-info .guac-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--consumr-white);
+    text-align: center;
+    padding: 2rem;
+}
+
+.section-consumr-info .consumr-info-header {
+    font-size: 2rem !important;
+}
+
+.section-consumr-info h2 {
+    font-size: 1.5rem !important;
+    position: relative;
+}
+
+.section-consumr-info .consumr-info-header::after {
+    content: "";
+    display: block;
+    width: 6rem;
+    height: 4px;
+    background-color: var(--consumr-white);
+    margin: 0.5rem auto 0;
+    opacity: 0.6;
+}
+
+.section-consumr-info p {
+    max-width: 80ch !important;
+}
